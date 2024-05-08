@@ -1,0 +1,335 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgba(214,214,214);
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr 10fr 1fr;
+    margin: 0;
+    grid-template-areas: 
+    "header"
+    "sort"
+    "principal"
+    "paginas"
+    "footer";
+    height: auto;
+
+}
+
+header{
+    grid-area: header;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(19,27,31);
+    color: rgb(238, 208, 138);
+    padding: 10px 20px;
+}
+
+.logo {
+    display: flex;
+    font-size: 24px;
+    justify-content: center;
+    align-content: center;
+}
+.logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.logo h1 {
+    font-size: 24px;
+    margin-left: 10px;
+    align-self: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    height: 2px;
+    width: 25px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+.menu {
+    display: none; 
+    flex-direction: column;
+    padding: 0;
+}
+
+.menu.active {
+    display: flex;
+}
+
+.menu-icon {
+    display: flex;
+}
+
+section{
+    grid-area: sort;
+    padding: 10px;
+    margin: 0;
+    background-color: rgb(71, 66, 66);
+
+}
+.main {
+    display: flex;
+    grid-area: principal;
+    flex-wrap: wrap;
+    background-color: rgb(214,214,214);
+    justify-content: flex-start;
+    margin-inline-end: 20px;
+    padding-inline-start: 40px;
+    padding-inline-end: 40px;
+    padding-bottom: 20px;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    grid-area: footer;
+    padding: 20px;
+    background-color: rgb(25, 42, 50);
+    color: #fff;
+    
+    
+}
+
+.filtros {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    }
+
+.filtros div { 
+    align-items: center;
+    margin: 10px;
+
+}
+.filtros select {
+    width: 70%;
+    margin-top: 10px;
+    padding: 8px;
+    box-sizing: border-box;
+    align-items: center;
+    height: 40px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    max-width: 150px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.product-container img {
+    width: 150px;
+    height: 90px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.product-container h3 {
+    margin: 0;
+    
+    
+}
+.product-container h5 {
+    margin-bottom: 10px;
+}
+
+.product-container p {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.product-container button {
+    background-color: #007bff;
+    width: 100%;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: auto;
+
+}
+
+.product-container button:hover {
+    background-color: #0056b3;
+}
+
+.pagination {
+    display:flex;
+    background-color: rgba(214,214,214);
+    grid-area: paginas;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    
+    
+}
+
+.pagination button {
+    padding: 8px 16px;
+    background-color: #fff;
+    border: 0.5px solid #007bff;
+    margin: 0.5px;
+    color: #007bff;
+    cursor: pointer;
+
+}
+
+.pagination button:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+/* PANTALLA GRANDE */
+@media screen and (min-width: 576px) {
+    .grid-container{
+        grid-template-areas:
+        "header sort"
+        "header principal"
+        "footer principal"
+        "footer paginas";
+        grid-template-columns: 1fr 6fr;
+        grid-template-rows: 1fr 5fr auto auto;
+        height: auto;
+        
+
+    }
+    header{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        background-color: rgb(19,27,31);
+        color: rgb(238, 208, 138);
+        flex-direction: column;
+    }
+
+    .logo {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    nav {
+        display: flex;
+
+    }
+    .menu {
+        display: flex;
+        list-style-type: none;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .menu a {
+        color: #fff;
+        font-size: small;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .menu a:hover {
+        color: #ccc;
+    }
+    .menu.active {
+        display: none;
+    }
+    
+    .menu-icon {
+        display: none;
+    }
+
+    .product-container {
+        display: flex;
+        flex-basis: auto;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-height: 200px;
+        max-width: 150px;
+        margin-top: 20px;
+        margin-left: 40px;
+    }
+
+    
+    .pagination {
+        display:flex;
+        background-color: rgba(214,214,214);
+        grid-area: paginas;
+        text-align: center;
+        justify-content: center;
+        padding: 20px;
+        margin: 0;
+        
+    }
+    
+    .pagination button {
+        padding: 8px 16px;
+        background-color: #fff;
+        border: 0.5px solid #007bff;
+        margin: 0.5px;
+        color: #007bff;
+        cursor: pointer;
+    
+    }
+    
+    .pagination button:hover {
+        background-color: #0056b3;
+        color: #fff;
+    }
+
+    footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        grid-area: footer;
+        padding: 20px;
+        background-color: rgb(25, 42, 50);
+        color: #fff;
+        text-align: center;
+        min-height: 80px;
+        
+        
+        
+    }
+}
